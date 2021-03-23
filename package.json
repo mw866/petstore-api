@@ -1,16 +1,19 @@
 {
-  "name": "swagger-petstore",
+  "name": "petstore-api",
   "version": "1.0.0",
-  "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+  "description": "This is a Petstore API service built on Node.",
+  "author": "Chris Wang <dev@chriswang.tech> (https://chriswang.tech/)",
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
     "start": "node index.js"
   },
   "keywords": [
-    "swagger"
+    "api",
+    "nodejs",
+    "node"
   ],
-  "license": "Unlicense",
+  "license": "Apache-2.0",
   "private": true,
   "dependencies": {
     "connect": "^3.2.0",
