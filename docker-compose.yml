@@ -1,0 +1,27 @@
+version: "3.8"
+
+networks:
+  default:
+    driver: bridge
+ 
+services:
+  petstore:
+    hostname: petstore
+    container_name: petstore
+    image:  mw866/petstore-api:latest
+    restart: always
+
+  tunnel:
+    image: mw866/cloudflared:2021.3.5-1-gf9062ab4
+    container_name: tunnel
+    environment:
+      TUNNEL_HOSTNAME: ${CLOUDLFARED_HOSTNAME}
+      TUNNEL_URL: http://petstore:8080
+      TUNNEL_ORIGIN_CERT: /.cloudflared/cert.pem
+      TUNNEL_RETRIES: 10
+    volumes:
+      - "${CLOUDLFARED_CERT}:/.cloudflared/cert.pem"
+    restart: always
+    command: ["tunnel"]
+    depends_on: 
+      - petstore

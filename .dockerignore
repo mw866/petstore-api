@@ -1,6 +1,9 @@
 node_modules
 npm-debug.log
 README.md
+.git
 .gitignore
 .swagger-codegen
 .swagger-codegen-ignore
+docker-compose.yml
+.env
