@@ -12,8 +12,7 @@ externalDocs:
   description: Check out my blog
   url: https://chriswang.tech
 servers:
-- url: https://petstore.chriswang.me
-- url: https://petstore.chriswang.tech
+- url: /
 tags:
 - name: pet
   description: Everything about your Pets
