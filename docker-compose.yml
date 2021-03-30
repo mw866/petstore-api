@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.7"
 
 networks:
   default:
@@ -11,9 +11,9 @@ services:
     image:  mw866/petstore-api:latest
     restart: always
 
-  tunnel:
+  cloudflared:
     image: mw866/cloudflared:2021.3.5-1-gf9062ab4
-    container_name: tunnel
+    container_name: cloudflared
     environment:
       TUNNEL_HOSTNAME: ${CLOUDLFARED_HOSTNAME}
       TUNNEL_URL: http://petstore:8080
