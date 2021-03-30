@@ -1,4 +1,4 @@
-# PetStore API 
+# PetStore API
 
 ## Overview
 
@@ -22,13 +22,35 @@ See https://hub.docker.com/r/mw866/petstore-api
 docker build -t mw866/petstore-api:latest -t mw866/petstore-api:"$(jq -r .version package.json)" .
 ```
 
-## Running the server
+**Step 1** - Install [buildx](https://github.com/docker/buildx).
+
+**Step 2** - Create the `buildx` builder instance.
+
+```
+docker buildx create --use
+```
+
+**Step 3** - Check the runtime supported.
+
+```
+docker buildx inspect --bootstrap
+```
+
+**Step 4** - Build and publish the image
+
+```
+export TAG=$(jq -r .version package.json)
+docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag mw866/petstore-api:$TAG --tag mw866/petstore-api:latest .
+```
+
+## Running the server locally
 
 ### With Docker
 
 ```
 docker run mw866/petstore-api -p 8080:8080
 ```
+
 ### Without Docker
 To run the server, run:
 
@@ -36,5 +58,12 @@ To run the server, run:
 npm start
 ```
 
+## Publish application using `cloudflared` and `docker-compose`
+
+1. Install `cloudflared` 
+1. Run `cloudflared login`
+1. Update the values in `.env.example` and rename it to `.env`.
+1. Install Docker Engine and `docker-compose`
+1. Run `docker-compose up`
 ## Reference
 [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
