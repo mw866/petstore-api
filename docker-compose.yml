@@ -18,9 +18,9 @@ services:
       TUNNEL_HOSTNAME: ${CLOUDLFARED_HOSTNAME}
       TUNNEL_URL: http://petstore:8080
       TUNNEL_ORIGIN_CERT: /.cloudflared/cert.pem
-      TUNNEL_RETRIES: 10
+      TUNNEL_RETRIES: 3
     volumes:
-      - "${CLOUDLFARED_CERT}:/.cloudflared/cert.pem"
+      - "${CLOUDLFARED_CERT}:/.cloudflared/cert.pem:ro"
     restart: always
     command: ["tunnel"]
     depends_on: 

@@ -68,6 +68,8 @@ npm start
 1. Install Docker Engine and `docker-compose`
 1. Run `docker-compose up`
 
+If you see the error message like ```cloudflared    | Error getting origin cert: cannot check if origin cert exists at path /.cloudflared/cert.pem```, it's because of the non-privileged user in the `cloudflared` Docker image. See [this issue](https://github.com/cloudflare/cloudflared/issues/163) for solution.
+
 ## Reference
 
 [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
