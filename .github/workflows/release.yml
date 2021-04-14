@@ -1,10 +1,22 @@
 name: Publish Docker image
 on:
-  push:
-    branches: [ main ]
+  release:
+    types: [created]
 jobs:
-  push_to_registry:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 
+      uses: actions/setup-node@v1
+      with:
+        node-version: '15.x'
+    - run: npm ci
+    - run: npm test
+
+  publish_to_dockerhub:
     name: Push Docker image to Docker Hub
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Generate Docker meta
