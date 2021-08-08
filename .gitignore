@@ -117,3 +117,6 @@ dist
 
 # certificate file
 .pem
+
+# MacOS file
+.DS_Store

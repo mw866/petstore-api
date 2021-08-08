@@ -1,6 +1,6 @@
 {
   "name": "@mw866/petstore-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This is a Petstore API service built on Node.",
   "author": "Chris Wang <dev@chriswang.tech> (https://chriswang.tech/)",
   "main": "index.js",
@@ -25,5 +25,9 @@
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "mocha": "^8.3.2"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
   }
 }
