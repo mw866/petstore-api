@@ -120,3 +120,6 @@ dist
 
 # MacOS file
 .DS_Store
+
+# VSCode DeepCode
+.dccache
