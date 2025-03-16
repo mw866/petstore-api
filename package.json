@@ -22,7 +22,7 @@
     "oas3-tools": "^2.2.3"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
+    "chai": "^4.5.0",
     "chai-http": "^4.3.0",
     "mocha": "^8.3.2"
   },
